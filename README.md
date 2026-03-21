@@ -2,33 +2,33 @@
 
 🧠 Descripción
 
-CpuPy es un proyecto experimental en Python que permite ejecutar programas para una CPU de 8 bits a partir de código en formato hexadecimal o binario.
+CpuPy es un proyecto en Python que permite ejecutar programas para una CPU de 8 bits a partir de archivos en formato binario (".bin") o hexadecimal (".hex").
 
-Incluye un paquete ("cpu8bit") y un script ("ejecutar.py") que actúa como ejecutor de programas.
+Incluye un paquete ("cpu8bit") que implementa la CPU y un script ("ejecutar.py") que permite cargar y ejecutar programas fácilmente desde la terminal.
 
 ---
 
 🎯 Características
 
-- 🧮 Ejecución de programas en binario y hexadecimal
+- 🧮 Ejecución de programas en formato .bin y .hex
 - ⚙️ Simulación de una CPU de 8 bits
+- 🔍 Detección automática del formato de entrada
 - 🐍 Implementado en Python
-- 🧪 Proyecto experimental orientado a aprendizaje
 
 ---
 
 📦 Estructura del proyecto
 
 .
-├── cpu8bit-0.1.5-py3-none-any.whl  # Librería principal (CPU)
-├── ejecutar.py                     # Ejecuta programas en hex/bin
+├── cpu8bit-0.1.5-py3-none-any.whl  # Implementación de la CPU
+├── ejecutar.py                     # Script para ejecutar programas
 └── README.md
 
 ---
 
 🚀 Instalación
 
-Instala el paquete:
+Instala el paquete ".whl":
 
 pip install cpu8bit-0.1.5-py3-none-any.whl
 
@@ -36,38 +36,40 @@ pip install cpu8bit-0.1.5-py3-none-any.whl
 
 ▶️ Uso
 
-Ejecuta un programa con:
-
-python ejecutar.py
-
-El script permite cargar y ejecutar programas escritos en:
-
-- formato binario (".bin")
-- formato hexadecimal (".hex")
-
----
-
-🧪 Ejemplo
-
-(ajusta esto según cómo funcione realmente tu script)
-
-python ejecutar.py programa.hex
-
-o
+Ejecuta un programa pasando el archivo como argumento:
 
 python ejecutar.py programa.bin
 
+o
+
+python ejecutar.py programa.hex
+
 ---
 
-🧠 ¿Qué es cpu8bit?
+⚙️ Funcionamiento
 
-"cpu8bit" es una implementación de una CPU simple de 8 bits que puede interpretar instrucciones desde archivos binarios o hexadecimales.
+El script "ejecutar.py":
 
-Puede incluir:
+1. Recibe un archivo como argumento
+2. Detecta automáticamente el formato:
+   - ".bin" → modo binario
+   - ".hex" → modo hexadecimal
+3. Carga el programa en la CPU:
+   cpu.load_program(archivo, mode="bin" | "hex")
+4. Ejecuta el programa:
+   cpu.run()
+
+---
+
+🧠 Sobre la CPU
+
+El módulo "cpu8bit" implementa una CPU básica de 8 bits capaz de interpretar instrucciones desde archivos externos.
+
+Dependiendo de la implementación interna, puede incluir:
 
 - registros
 - memoria
-- instrucciones básicas (dependiendo de la implementación)
+- set de instrucciones
 
 ---
 
@@ -75,15 +77,18 @@ Puede incluir:
 
 🚧 En desarrollo
 
-- Puede contener errores
-- Puede cambiar la estructura
-- Código experimental
+Este proyecto es experimental y puede:
+
+- cambiar sin aviso
+- contener errores
+- expandirse con nuevas instrucciones o features
 
 ---
 
 ⚠️ Nota
 
-Este proyecto está pensado para fines educativos y de experimentación.
+Este repositorio incluye el paquete compilado (".whl").
+El código fuente del módulo "cpu8bit" puede no estar incluido.
 
 ---
 
