@@ -1,5 +1,3 @@
-# assembler_console.py
-
 OPCODES = {
     "LOAD": 1,
     "ADD": 2,
@@ -75,17 +73,34 @@ def assemble_line(line):
     return bytes_out
 
 
-def assemble_console(input_file):
+def format_byte(b, mode):
+    if mode == "bin":
+        return f"{b:08b}"
+    elif mode == "hex":
+        return f"{b:02X}"
+    else:
+        raise ValueError("Modo inválido")
+
+
+def assemble_console(input_file, mode="bin"):
     with open(input_file, "r") as f:
         for line in f:
             bytes_line = assemble_line(line)
             for b in bytes_line:
-                print(f"{b:08b}")
+                print(format_byte(b, mode))
 
 
 if __name__ == "__main__":
     import sys
+
     if len(sys.argv) < 2:
-        print("Uso: python assembler_console.py programa.asm")
+        print("Uso: python assembler.py programa.asm [--bin | --hex]")
     else:
-        assemble_console(sys.argv[1])
+        mode = "bin"
+        if len(sys.argv) > 2:
+            if sys.argv[2] == "--hex":
+                mode = "hex"
+            elif sys.argv[2] == "--bin":
+                mode = "bin"
+
+        assemble_console(sys.argv[1], mode)
