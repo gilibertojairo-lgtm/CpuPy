@@ -1,0 +1,9 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cpu8bit"
+version = "0.1.5"
+description = "porfa apoyen"
+authors = [{name="jairo"}]
