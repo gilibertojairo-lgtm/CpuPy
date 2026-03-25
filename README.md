@@ -100,3 +100,8 @@ Por definir
 
 El assembler se usa con ``             python3 assembler.py ~/ejemplo.asm --hex    python3 assembler.py ~/ejemplo1.asm --bin
 ``
+
+
+🕳️ etc
+
+use chat gpt☠️☠️☠️☠️☠️
